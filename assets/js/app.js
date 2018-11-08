@@ -1,4 +1,4 @@
-import css from '../css/app.css';
+
 // Brunch automatically concatenates all files in your
 // watched paths. Those paths can be configured at
 // config.paths.watched in "brunch-config.js".
@@ -13,7 +13,7 @@ import css from '../css/app.css';
 // If you no longer want to use a dependency, remember
 // to also remove its path from "config.paths.watched".
 import "phoenix_html"
-
+import css from '../css/app.css';
 // Import local files
 //
 // Local files can be imported directly using relative

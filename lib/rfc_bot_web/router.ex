@@ -21,7 +21,9 @@ defmodule RfcBotWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RfcBotWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", RfcBotWeb do
+    pipe_through :api
+
+    post("/github/payload", PageController, :github_payload)
+  end
 end
