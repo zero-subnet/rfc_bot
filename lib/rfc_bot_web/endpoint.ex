@@ -1,7 +1,9 @@
 defmodule RfcBotWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :rfc_bot
 
-  socket("/socket", RfcBotWeb.UserSocket)
+  socket "/socket", RfcBotWeb.UserSocket, 
+  websocket: true, # or list of options
+  longpoll: [check_origin: false]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -27,7 +29,7 @@ defmodule RfcBotWeb.Endpoint do
   plug(Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
     pass: ["*/*"],
-    json_decoder: Poison
+    json_decoder: Jason
   )
 
   plug(Plug.MethodOverride)

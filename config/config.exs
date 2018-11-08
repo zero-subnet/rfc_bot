@@ -9,6 +9,8 @@ use Mix.Config
 config :rfc_bot,
   ecto_repos: [RfcBot.Repo]
 
+config :phoenix, :json_library, Jason
+
 # Configures the endpoint
 config :rfc_bot, RfcBotWeb.Endpoint,
   url: [host: "localhost"],

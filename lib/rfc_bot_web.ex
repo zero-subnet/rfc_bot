@@ -17,6 +17,8 @@ defmodule RfcBotWeb do
   and import those modules here.
   """
 
+  alias AppWeb.Router.Helpers, as: Routes
+  
   def controller do
     quote do
       use Phoenix.Controller, namespace: RfcBotWeb
