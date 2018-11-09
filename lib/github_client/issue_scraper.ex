@@ -1,5 +1,6 @@
 defmodule RfcBot.GitHub.IssueScraper do
   use GenServer
+  import RfcBot.GitHub.Client
 
   @doc """
   GenServer.init/1 callback
@@ -16,7 +17,8 @@ defmodule RfcBot.GitHub.IssueScraper do
     {:noreply, state}
   end
 
-  def handle_cast(:message, state) do
+  def handle_cast({:scrape, target}, state) do
+    Client.issues_since(target["org"], target["repo"], target["date"])
     {:noreply, state}
   end
 

@@ -2,7 +2,7 @@ defmodule RfcBot.GitHub.Client do
   @moduledoc """
   Client for interacting with GitHub API
   """
-  use Ecto.Query
+  import Ecto.Query
   import Tentacat
 
   @doc """
@@ -81,8 +81,8 @@ defmodule RfcBot.GitHub.Client do
   Records a successful sync
   """
   def record_successful_sync(org, repo, successful) do
-    params = %{"successful" => successful, "ran_at" => DateTime.utc_now()}
-    changeset = RfcBot.GitHubSync.changeset(RfcBot.GitHubSync%{},  params)
+    params = %{:successful => successful, :repo => repo, :ran_at => DateTime.utc_now()}
+    changeset = RfcBot.GitHubSync.changeset(%RfcBot.GitHubSync{},  params)
   end
 
   defp get_github_client() do
