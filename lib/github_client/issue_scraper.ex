@@ -21,5 +21,4 @@ defmodule RfcBot.GitHub.IssueScraper do
     Client.issues_since(target["org"], target["repo"], target["date"])
     {:noreply, state}
   end
-
 end

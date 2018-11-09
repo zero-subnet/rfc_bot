@@ -1,9 +1,10 @@
 defmodule RfcBotWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :rfc_bot
 
-  socket "/socket", RfcBotWeb.UserSocket, 
-  websocket: true, # or list of options
-  longpoll: [check_origin: false]
+  socket "/socket", RfcBotWeb.UserSocket,
+    # or list of options
+    websocket: true,
+    longpoll: [check_origin: false]
 
   # Serve at "/" the static files from "priv/static" directory.
   #

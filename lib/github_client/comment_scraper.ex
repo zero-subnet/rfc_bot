@@ -10,7 +10,6 @@ defmodule RfcBot.GitHub.CommentScraper do
   end
 
   def init(state) do
-
     {:ok, state}
   end
 
@@ -22,5 +21,4 @@ defmodule RfcBot.GitHub.CommentScraper do
     Client.comments_since(target["org"], target["repo"], target["date"])
     {:noreply, state}
   end
-
 end

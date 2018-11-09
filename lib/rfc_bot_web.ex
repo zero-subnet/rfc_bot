@@ -18,7 +18,7 @@ defmodule RfcBotWeb do
   """
 
   alias AppWeb.Router.Helpers, as: Routes
-  
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: RfcBotWeb

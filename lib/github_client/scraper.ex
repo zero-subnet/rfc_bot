@@ -19,5 +19,4 @@ defmodule RfcBot.GitHub.Scraper do
   def handle_cast(:message, state) do
     {:noreply, state}
   end
-
 end

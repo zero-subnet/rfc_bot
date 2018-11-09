@@ -1,3 +1,3 @@
 defmodule RfcBotWeb.Models.Comment do
-  @type body() :: String.t
+  @type body() :: String.t()
 end

@@ -3,10 +3,9 @@ defmodule RfcBot.Repo.Migrations.CreateGithubusers do
 
   def change do
     create table(:githubusers) do
-      add :login, :string
+      add(:login, :string)
 
       timestamps()
     end
-
   end
 end
