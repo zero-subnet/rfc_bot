@@ -13,17 +13,17 @@ defmodule RfcBotWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/", RfcBotWeb do
-    # Use the default browser stack
-    pipe_through(:browser)
+  # scope "/", RfcBotWeb do
+  #   # Use the default browser stack
+  #   pipe_through(:browser)
 
-    get("/", PageController, :index)
-  end
+  #   get("/", PageController, :index)
+  # end
 
   # Other scopes may use custom stacks.
   scope "/api", RfcBotWeb do
     pipe_through :api
 
-    post("/github/payload", PageController, :github_payload)
+    post("/github/payload", WebHookController, :process_event)
   end
 end
