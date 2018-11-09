@@ -13,13 +13,6 @@ defmodule RfcBotWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  # scope "/", RfcBotWeb do
-  #   # Use the default browser stack
-  #   pipe_through(:browser)
-
-  #   get("/", PageController, :index)
-  # end
-
   # Other scopes may use custom stacks.
   scope "/api", RfcBotWeb do
     pipe_through :api

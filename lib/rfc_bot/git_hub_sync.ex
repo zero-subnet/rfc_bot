@@ -14,6 +14,6 @@ defmodule RfcBot.GitHubSync do
   def changeset(git_hub_sync, attrs) do
     git_hub_sync
     |> cast(attrs, [:successful, :ran_at, :message])
-    |> validate_required([:successful, :ran_at, :message])
+    |> validate_required([:successful, :ran_at])
   end
 end

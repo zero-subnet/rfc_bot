@@ -2,7 +2,7 @@ defmodule RfcBot.GitHub.Client do
   @moduledoc """
   Client for interacting with GitHub API
   """
-
+  use Ecto.Query
   import Tentacat
 
   @doc """
@@ -68,6 +68,21 @@ defmodule RfcBot.GitHub.Client do
   def edit_comment(owner, repo, comment_number, body_text) do
     get_github_client()
     |> Tentacat.Issues.Comments.update(owner, repo, comment_number, body_text)
+  end
+
+  @doc """
+  Gets the most recent sync time of a GitHub repo
+  """
+  def most_recent_sync(org, repo) do
+    Repo.one(from x in RfcBot.GitHubSync, order_by: [desc: x.ran_at], limit: 1)
+  end
+  
+  @doc """
+  Records a successful sync
+  """
+  def record_successful_sync(org, repo, successful) do
+    params = %{"successful" => successful, "ran_at" => DateTime.utc_now()}
+    changeset = RfcBot.GitHubSync.changeset(RfcBot.GitHubSync%{},  params)
   end
 
   defp get_github_client() do
